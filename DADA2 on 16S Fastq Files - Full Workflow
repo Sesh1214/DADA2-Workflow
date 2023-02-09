@@ -79,7 +79,7 @@ colnames(track) <- c("input", "filtered", "denoisedF", "denoisedR", "merged", "n
 rownames(track) <- sample.names
 head(track)
 
-taxa <- assignTaxonomy(seqtab.nochim, "~/tax/silva_nr_v132_train_set.fa.gz", multithread=FALSE)
+taxa <- assignTaxonomy(seqtab.nochim, "GTDB_bac120_arc122_ssu_r202_fullTaxo.fa.gz", multithread=FALSE)
 taxa.print <- taxa # Removing sequence rownames for display only
 rownames(taxa.print) <- NULL
 head(taxa.print)
