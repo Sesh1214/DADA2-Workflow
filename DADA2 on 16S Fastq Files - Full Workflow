@@ -40,9 +40,7 @@ filtRs <- file.path(path, "filtered", paste0(sample.names, "_R_filt.fastq.gz"))
 names(filtFs) <- sample.names
 names(filtRs) <- sample.names
 
-out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(240,160),
-              maxN=0, maxEE=c(2,2), truncQ=2, rm.phix=TRUE,
-              compress=TRUE, multithread=FALSE) 
+out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(290,250), #=c(280,200),maxN=0, maxEE=c(10,10), minQ=2, truncQ=2, rm.phix=TRUE, compress=TRUE, multithread=TRUE)
               
 print(out)
 
@@ -79,7 +77,9 @@ colnames(track) <- c("input", "filtered", "denoisedF", "denoisedR", "merged", "n
 rownames(track) <- sample.names
 head(track)
 
-taxa <- assignTaxonomy(seqtab.nochim, "GTDB_bac120_arc122_ssu_r202_fullTaxo.fa.gz", multithread=FALSE)
+db_path = "~/"GTDB_bac-arc_ssu_r86.fa.gz"
+
+taxa <- assignTaxonomy(seqtab.nochim, db_path, multithread=FALSE)
 taxa.print <- taxa # Removing sequence rownames for display only
 rownames(taxa.print) <- NULL
 head(taxa.print)
