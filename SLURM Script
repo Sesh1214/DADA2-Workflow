@@ -1,12 +1,15 @@
 #!/bin/bash
 #SBATCH --mail-type=ALL #Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=yfe22ruu@uea.ac.uk #Where to send mail
-#SBATCH -p compute-64-512 #Which partition to use
+#SBATCH -p compute-24-128 #Which partition to use
 #SBATCH --mem=6G #Maximum memory required for job
 #SBATCH --time=0-24:00 #Maximum duration of job (DD-HH:MM)
 #SBATCH --job-name=test_job #Arbitrary name for job
 #SBATCH -o test_job-%j.out #Standard output log
 #SBATCH -e test_job-%j.err #Standard error log
-module add  R/4.2.1 #Add the required modules for your job
-pwd #Display the current working directory
-R DADA2Script.R #Run R script
+
+echo 'hi'
+
+#module add  R/4.2.1 #Add the required modules for your job
+#pwd #Display the current working directory
+#R DADA2Script.R #Run R script
